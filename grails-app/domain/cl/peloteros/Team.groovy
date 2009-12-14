@@ -56,8 +56,8 @@ class Team {
                 eq('user', user)
                 eq('team', this)
                 or {
-                    eq('userRol', 'admin')
-                    eq('userRol', 'superadmin')
+                    eq('userRol', 0)
+                    eq('userRol', 1)
                 }
             }
         }
@@ -66,13 +66,13 @@ class Team {
     }
 
     //agrego un usuario al equipo
-    public Team addToUsers(User user, String rol) {
+    public Team addToUsers(User user, int rol) {
         Membership.link(user, this, rol)
         return this
     }
 
     //agrego un game al equipo
-    public Team addToGames(Game game, String teamRol) {
+    public Team addToGames(Game game, int teamRol) {
         TeamGame.link(this, game, teamRol)
         return this
     }

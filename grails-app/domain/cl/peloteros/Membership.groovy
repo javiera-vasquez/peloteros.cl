@@ -2,7 +2,7 @@ package cl.peloteros
 
 class Membership {
 
-    String userRol //"normal", "invitee", "admin" o "superadmin"
+    int userRol //0:superadmin,1:admin,2:invitee,3:normal
     int seenMessages = 0 //contador de mensajes vistos
     Date dateCreated
 
@@ -10,7 +10,7 @@ class Membership {
     static belongsTo = [user: User, team: Team]
 
     //vinculo una instancia de usuario con una instancia de equipo
-    static Membership link(User user, Team team, String rol) {
+    static Membership link(User user, Team team, int rol) {
         def m = Membership.findByUserAndTeam(user, team)
         if (!m && user && team) {
             m = new Membership()
@@ -50,7 +50,7 @@ class Membership {
 
     //restricciones
     static constraints = {
-        userRol(inList: ["normal", "invitee", "admin", "superadmin"])
+        userRol(inList: [0, 1, 2, 3])
         seenMessages(min: 0)
     }
 }

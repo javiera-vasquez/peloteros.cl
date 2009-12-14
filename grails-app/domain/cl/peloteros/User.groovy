@@ -30,15 +30,15 @@ class User {
     }
 
     //funcion para conectar un equipo con un usuario
-    public User addToTeams(Team team, String rol) {
+    public User addToTeams(Team team, int rol) {
         Membership.link(this, team, rol)
         return this
     }
 
     //funcion para conectar un game con un usuario
     public User addToGames(
-        Game game, boolean llevaPelota, boolean asiste, int galletas) {
-        UserGame.link(this, game, llevaPelota, asiste, galletas)
+        Game game, Team team, boolean llevaPelota, boolean asiste, int galletas) {
+        UserGame.link(this, team, game, llevaPelota, asiste, galletas)
         return this
     }
 
