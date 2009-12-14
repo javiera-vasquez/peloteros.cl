@@ -8,11 +8,16 @@ class BootStrap {
                 //agrego un usuario de prueba
                 def testUser = new User(
                     name:"testUser",
-                    lastname:"testUser",
+                    lastName:"testUser",
                     login:"test@test.com",
                     password:"1234",
                 )
-                testUser.save()
+                if(testUser.save()){
+                    println("test user created: $testUser")
+                }
+                else{
+                    println("test user not created")
+                }
             }
         }
     }
