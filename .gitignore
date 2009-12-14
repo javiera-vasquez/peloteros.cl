@@ -1,0 +1,9 @@
+.* # Ignore all dotfiles...
+.classpath
+.project
+!.gitignore # except for .gitignore
+!.settings
+
+#ignoro la carpeta target
+target/*
+target/**/*
