@@ -2,7 +2,7 @@ package cl.peloteros
 
 class Invitation {
 
-    Date date
+    Date dateCreated
     String email//el correo al que estamos invitando
     String code//el codigo de invitación
     User user//el usuario invitado, si es que existe en sistema

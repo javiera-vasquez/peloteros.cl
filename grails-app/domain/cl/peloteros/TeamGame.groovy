@@ -29,6 +29,8 @@ class TeamGame {
         }
     }
 
+    public TeamGame 
+
     //solo hay 2 roles posibles
     static constraints = {
         teamRol(inList: [0, 1])
